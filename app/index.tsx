@@ -1,5 +1,6 @@
 import { Redirect } from "expo-router";
 
+import { WelcomeScreenContent } from "@/features/auth/components/WelcomeScreenContent";
 import { useAppStore } from "@/store/appStore";
 
 export default function IndexScreen() {
@@ -7,7 +8,7 @@ export default function IndexScreen() {
   const onboardingComplete = useAppStore((state) => state.onboardingComplete);
 
   if (!session) {
-    return <Redirect href="/welcome" />;
+    return <WelcomeScreenContent />;
   }
 
   if (!onboardingComplete) {
